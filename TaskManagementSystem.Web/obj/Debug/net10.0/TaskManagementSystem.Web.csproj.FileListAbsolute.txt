@@ -332,3 +332,4 @@ D:\04_PinTechHasan\01_Projects\ProjectsIdea\TaskManagementSystem\TaskManagementS
 D:\04_PinTechHasan\01_Projects\ProjectsIdea\TaskManagementSystem\TaskManagementSystem.Web\bin\Verify\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\04_PinTechHasan\01_Projects\ProjectsIdea\TaskManagementSystem\TaskManagementSystem.Web\bin\Verify\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\04_PinTechHasan\01_Projects\ProjectsIdea\TaskManagementSystem\TaskManagementSystem.Web\bin\Verify\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\04_PinTechHasan\01_Projects\ProjectsIdea\TaskManagementSystem\TaskManagementSystem.Web\obj\Debug\net10.0\TaskManagementSystem.Web.sourcelink.json
