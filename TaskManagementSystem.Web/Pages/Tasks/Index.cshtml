@@ -1,0 +1,84 @@
+@page
+@model TaskManagementSystem.Web.Pages_Tasks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].TaskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].ClientUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].CreatedByUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskInfo[0].AssignedManager)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TaskInfo) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientUser.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByUser.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedManager.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TaskId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TaskId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TaskId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+@page
+@model TaskManagementSystem.Web.Pages.Account.AccessDeniedModel
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="alert alert-danger mt-4">
+    <h4>Access Denied</h4>
+    <p>You do not have permission to open this page.</p>
+    <a asp-page="/Dashboard" class="btn btn-primary">Back to Dashboard</a>
+</div>

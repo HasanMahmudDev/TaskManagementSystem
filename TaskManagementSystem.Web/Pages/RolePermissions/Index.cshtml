@@ -1,0 +1,66 @@
+@page
+@model TaskManagementSystem.Web.Pages_RolePermissions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RolePagePermission[0].CanView)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RolePagePermission[0].CanCreate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RolePagePermission[0].CanEdit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RolePagePermission[0].CanDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RolePagePermission[0].Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RolePagePermission[0].Page)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RolePagePermission) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CanView)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CanCreate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CanEdit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CanDelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.RoleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Page.PageName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PermissionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PermissionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PermissionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

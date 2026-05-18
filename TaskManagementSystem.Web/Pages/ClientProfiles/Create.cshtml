@@ -1,0 +1,43 @@
+@page
+@model TaskManagementSystem.Web.Pages_ClientProfiles.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>ClientProfile</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClientProfile.UserId" class="control-label"></label>
+                <select asp-for="ClientProfile.UserId" class ="form-control" asp-items="ViewBag.UserId" ></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientProfile.Company" class="control-label"></label>
+                <input asp-for="ClientProfile.Company" class="form-control" />
+                <span asp-validation-for="ClientProfile.Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientProfile.Contact" class="control-label"></label>
+                <input asp-for="ClientProfile.Contact" class="form-control" />
+                <span asp-validation-for="ClientProfile.Contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

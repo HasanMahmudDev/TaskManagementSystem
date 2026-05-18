@@ -1,0 +1,76 @@
+@page
+@model TaskManagementSystem.Web.Pages_Tasks.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TaskInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TaskInfo.TaskId" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="TaskInfo.TaskName" class="control-label"></label>
+                <input asp-for="TaskInfo.TaskName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="TaskInfo.TaskName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.Description" class="control-label"></label>
+                <input asp-for="TaskInfo.Description" class="form-control" />
+                <span asp-validation-for="TaskInfo.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.CategoryId" class="control-label"></label>
+                <select asp-for="TaskInfo.CategoryId" class="form-control" asp-items="ViewBag.CategoryId" ></select>
+                <span asp-validation-for="TaskInfo.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.StartDate" class="control-label"></label>
+                <input asp-for="TaskInfo.StartDate" class="form-control" />
+                <span asp-validation-for="TaskInfo.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.EndDate" class="control-label"></label>
+                <input asp-for="TaskInfo.EndDate" class="form-control" />
+                <span asp-validation-for="TaskInfo.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.ClientUserId" class="control-label"></label>
+                <select asp-for="TaskInfo.ClientUserId" class="form-control" asp-items="ViewBag.ClientUserId" ></select>
+                <span asp-validation-for="TaskInfo.ClientUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.CreatedBy" class="control-label"></label>
+                <select asp-for="TaskInfo.CreatedBy" class="form-control" asp-items="ViewBag.CreatedBy" ></select>
+                <span asp-validation-for="TaskInfo.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.AssignedManagerId" class="control-label"></label>
+                <select asp-for="TaskInfo.AssignedManagerId" class="form-control" asp-items="ViewBag.AssignedManagerId" ></select>
+                <span asp-validation-for="TaskInfo.AssignedManagerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskInfo.Status" class="control-label"></label>
+                <input asp-for="TaskInfo.Status" class="form-control" />
+                <span asp-validation-for="TaskInfo.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

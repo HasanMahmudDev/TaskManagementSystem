@@ -1,0 +1,33 @@
+@page
+@model TaskManagementSystem.Web.Pages.Permissions.IndexModel
+@{
+    ViewData["Title"] = "Permission Matrix";
+}
+
+<h2>Permission Matrix</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Role</th>
+            <th>Page</th>
+            <th>View</th>
+            <th>Create</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.RolePagePermissions)
+    {
+        <tr>
+            <td>@item.Role?.RoleName</td>
+            <td>@item.Page?.PageName (@item.Page?.PageUrl)</td>
+            <td>@(item.CanView ? "Yes" : "No")</td>
+            <td>@(item.CanCreate ? "Yes" : "No")</td>
+            <td>@(item.CanEdit ? "Yes" : "No")</td>
+            <td>@(item.CanDelete ? "Yes" : "No")</td>
+        </tr>
+    }
+    </tbody>
+</table>

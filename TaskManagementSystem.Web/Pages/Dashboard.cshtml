@@ -1,0 +1,71 @@
+@page
+@model TaskManagementSystem.Web.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2 class="mb-4">Dashboard</h2>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card text-bg-primary h-100">
+            <div class="card-body">
+                <h6 class="card-title">Users</h6>
+                <h3>@Model.UserCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-success h-100">
+            <div class="card-body">
+                <h6 class="card-title">Tasks</h6>
+                <h3>@Model.TaskCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-warning h-100">
+            <div class="card-body">
+                <h6 class="card-title">Categories</h6>
+                <h3>@Model.CategoryCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-info h-100">
+            <div class="card-body">
+                <h6 class="card-title">Task Updates</h6>
+                <h3>@Model.TaskUpdateCount</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Recent Tasks</div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Category</th>
+                        <th>Client</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var task in Model.RecentTasks)
+                {
+                    <tr>
+                        <td>@task.TaskName</td>
+                        <td>@task.Category?.CategoryName</td>
+                        <td>@task.ClientUser?.Username</td>
+                        <td>@task.Status</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

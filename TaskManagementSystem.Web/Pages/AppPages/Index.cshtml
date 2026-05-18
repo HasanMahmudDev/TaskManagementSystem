@@ -1,0 +1,42 @@
+@page
+@model TaskManagementSystem.Web.Pages_AppPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppPage[0].PageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppPage[0].PageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AppPage) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageUrl)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PageId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PageId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PageId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

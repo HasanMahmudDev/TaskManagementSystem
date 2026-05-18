@@ -1,0 +1,37 @@
+@page
+@model TaskManagementSystem.Web.Pages_ClientProfiles.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ClientProfile</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientProfile.Company)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClientProfile.Company)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientProfile.Contact)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClientProfile.Contact)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientProfile.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClientProfile.User.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ClientProfile.ClientId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

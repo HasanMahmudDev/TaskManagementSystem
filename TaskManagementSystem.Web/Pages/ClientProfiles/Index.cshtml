@@ -1,0 +1,48 @@
+@page
+@model TaskManagementSystem.Web.Pages_ClientProfiles.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientProfile[0].Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientProfile[0].Contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientProfile[0].User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ClientProfile) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ClientId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ClientId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ClientId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
